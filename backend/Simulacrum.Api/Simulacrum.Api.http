@@ -1,0 +1,6 @@
+@Simulacrum.Api_HostAddress = http://localhost:5296
+
+GET {{Simulacrum.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

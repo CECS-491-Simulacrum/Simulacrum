@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="Simulacrum.Api/Simulacrum.Api.csproj" />
+  <Project Path="Simulacrum.Core/Simulacrum.Core.csproj" />
+  <Project Path="Simulacrum.Infrastructure/Simulacrum.Infrastructure.csproj" />
+</Solution>

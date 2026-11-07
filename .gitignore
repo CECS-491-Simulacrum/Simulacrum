@@ -1,0 +1,40 @@
+# .NET build output
+**/bin/
+**/obj/
+
+# Node.js dependencies
+**/node_modules/
+
+# IDE-specific files
+.vs/
+*.user
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Frontend build output
+**/dist/
+**/dist-ssr/
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sw?
+
+# Local environment configuration
+**/.env
+**/.env.*
+!**/.env.example
+**/appsettings.Development.json

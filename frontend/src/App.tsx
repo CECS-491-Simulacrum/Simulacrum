@@ -7,7 +7,11 @@ function App() {
 
   return (
     <>
-    <Sidebar/>
+    <div className = "parent">
+      <Sidebar/> 
+      <main className="mainContent">Temp Main</main>
+    </div>
+    
     </>
   )
 }

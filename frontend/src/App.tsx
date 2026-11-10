@@ -9,9 +9,11 @@ function App() {
     <>
     <div className = "parent">
       <Sidebar/> 
-      <TopBar/>
-      <main className="mainContent">Temp Main</main>
-      
+      <div>
+        <TopBar/>
+
+        <main className="mainContent">Temp Main </main>
+      </div>
     </div>
     
     </>

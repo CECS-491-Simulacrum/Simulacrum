@@ -1,21 +1,25 @@
-// From: https://supabase.com/blog/getting-started-with-the-supabase-dotnet-sdk
+/** References:
+ *
+ * ASP.NET Core startup process:
+ * https://learn.microsoft.com/en-us/aspnet/core/fundamentals/startup?view=aspnetcore-10.0
+ *
+ * Microsoft OpenAPI library & Swagger UI documentation:
+ * https://learn.microsoft.com/en-us/aspnet/core/fundamentals/openapi/using-openapi-documents?view=aspnetcore-10.0
+ *
+ * Supabase client setup (DB connection upon initialization):
+ * https://supabase.com/blog/getting-started-with-the-supabase-dotnet-sdk
+ */
+
 using Supabase.Core.Http;
 using Supabase.Extensions.DependencyInjection;
 
-// Loading variables from .env
-DotNetEnv.Env.Load();
+DotNetEnv.Env.Load(); // Loading variables from .env
 
+// 1. Configure app settings & register services for dependency injection.
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 builder.Services.AddControllers();
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
-builder.Services.AddSwaggerGen();
-
-// From: https://supabase.com/blog/getting-started-with-the-supabase-dotnet-sdk
-// Connect to the DB on initialization, as per this guide
 builder.Services.AddSupabase(
     supabaseUrl: builder.Configuration["SUPABASE_URL"]!,
     supabaseKey: builder.Configuration["SUPABASE_KEY"]!,
@@ -27,19 +31,20 @@ builder.Services.AddSupabase(
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// 2. Configure the HTTP request pipeline with middleware and map endpoints.
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
-
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(options =>
+    {
+        // UI needs to know where the OpenAPI endpoint (JSON API description) is
+        options.SwaggerEndpoint("/openapi/v1.json", "Simulacrum API");
+    });
 }
 
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
-
 app.MapControllers();
 
+// 3. Start the server and listen for incoming HTTP requests.
 app.Run();

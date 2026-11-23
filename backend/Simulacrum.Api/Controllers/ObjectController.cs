@@ -7,13 +7,19 @@ namespace Simulacrum.Api.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class WeatherForecastController : ControllerBase
+public class ObjectController : ControllerBase
 {
-    private static readonly string[] Summaries =
-    [
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    ];
 
+    /*
+    private readonly IObjectService _service;
+
+    public ObjectController(IObjectService service)
+    {
+        _service = service;
+    }
+    
+
+    /
     [HttpGet(Name = "GetWeatherForecast")]
     public IEnumerable<WeatherForecast> Get()
     {
@@ -25,4 +31,5 @@ public class WeatherForecastController : ControllerBase
         })
         .ToArray();
     }
+    */
 }

@@ -8,8 +8,12 @@
  *
  * Supabase client setup (DB connection upon initialization):
  * https://supabase.com/blog/getting-started-with-the-supabase-dotnet-sdk
+ *
+ * DbContext configuration and DI:
+ * https://learn.microsoft.com/en-us/ef/core/dbcontext-configuration/
  */
 
+using Simulacrum.Infrastructure;
 using Supabase.Core.Http;
 using Supabase.Extensions.DependencyInjection;
 
@@ -28,6 +32,11 @@ builder.Services.AddSupabase(
         options.AutoConnectRealtime = true;
         options.PostgrestRetry = new RetryOptions { MaxRetries = 3 };
     });
+
+var connectionString = builder.Configuration.GetConnectionString("SimulacrumDatabase")
+    ?? throw new InvalidOperationException("Connection string 'SimulacrumDatabase' not found.");
+
+builder.Services.AddInfrastructure(connectionString);
 
 var app = builder.Build();
 

@@ -8,3 +8,9 @@
   padding: 20px;
   background-color: ivory;
 }
+
+.workspace{
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}

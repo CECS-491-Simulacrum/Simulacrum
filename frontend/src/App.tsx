@@ -9,7 +9,7 @@ function App() {
     <>
     <div className = "parent">
       <Sidebar/> 
-      <div>
+      <div className='workspace'>
         <TopBar/>
 
         <main className="mainContent">Temp Main </main>

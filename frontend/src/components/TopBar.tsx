@@ -3,7 +3,9 @@ import "./TopBarStyle.css"
 export const TopBar = () =>{
     return (
         <nav className="TopBar">
-            Simulacrum
+            <button > Simmulacrum </button>
+            <button > Dashboard </button>
+            <button > Character </button>
         </nav>
     )
 }

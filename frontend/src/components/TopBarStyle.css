@@ -1,6 +1,26 @@
 
 .TopBar{
-    height: 10vh;
+    height: 40px;
+    display: flex;
     align-items: center;
-    background-color: #0b4042;
+    flex-direction: row;
+    background-color: #0b4143;
+    gap: 10px;
+    color: white;
 }
+
+.TopBar button {
+    background-color: #d2be9b;
+    color: black;
+    border: 2px solid black;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.TopBar button:hover {
+    background-color: #e8d9be;
+    color: black;
+    border: 2px solid black;
+    cursor: pointer;
+}
+

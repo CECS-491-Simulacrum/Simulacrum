@@ -19,8 +19,5 @@
 
 .TopBar button:hover {
     background-color: #e8d9be;
-    color: black;
-    border: 2px solid black;
-    cursor: pointer;
 }
 

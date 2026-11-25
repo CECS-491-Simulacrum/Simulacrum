@@ -21,6 +21,9 @@ public static class DependencyInjection
             options.UseNpgsql(connectionString);
         });
 
+        // when class requests IApplicationDbContext, ASP.NET Core will give ApplicationDbContext instance
+        services.AddScoped<IApplicationDbContext>(provider => provider.GetRequiredService<ApplicationDbContext>());
+
         return services;
     }
 }

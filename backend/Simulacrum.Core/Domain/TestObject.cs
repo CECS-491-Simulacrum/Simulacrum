@@ -1,7 +1,7 @@
 using Supabase.Postgrest.Attributes;
 using Supabase.Postgrest.Models;
 
-namespace Simulacrum.Core;
+namespace Simulacrum.Domain.Entities;
 
 // Creating a simple example object to send to the DB
 [Table("TestObjects")]

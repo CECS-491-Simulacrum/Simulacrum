@@ -13,6 +13,7 @@
  * https://learn.microsoft.com/en-us/ef/core/dbcontext-configuration/
  */
 
+using Simulacrum.Application;
 using Simulacrum.Infrastructure;
 using Supabase.Core.Http;
 using Supabase.Extensions.DependencyInjection;
@@ -36,6 +37,7 @@ builder.Services.AddSupabase(
 var connectionString = builder.Configuration.GetConnectionString("SimulacrumDatabase")
     ?? throw new InvalidOperationException("Connection string 'SimulacrumDatabase' not found.");
 
+builder.Services.AddApplication();
 builder.Services.AddInfrastructure(connectionString);
 
 var app = builder.Build();

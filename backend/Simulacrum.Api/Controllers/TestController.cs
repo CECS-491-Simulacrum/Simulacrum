@@ -1,8 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
-using Simulacrum.Core;
+using Simulacrum.Application.Services;
+using Simulacrum.Domain.Entities;
 using Supabase;
 
 namespace Simulacrum.Api.Controllers;
+
 
 [ApiController]
 [Route("[controller]")] // Basically opens a Route based on the name of this controller, (i.e., /Test/)
